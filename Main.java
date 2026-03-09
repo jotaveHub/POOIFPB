@@ -18,5 +18,6 @@ public class Main
 		System.out.println(" Bem vindo,"+nome+"!\n");
 		System.out.println("Você é "+profissao+" e tem "+idade+" anos.");
 		
+		scanner.close();
 	}
 }
