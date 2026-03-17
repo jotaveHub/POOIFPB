@@ -1,0 +1,6 @@
+# Ignorar diretórios de saída
+/bin/
+/out/
+
+# Ignorar arquivos compilados
+*.class
