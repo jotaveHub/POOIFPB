@@ -5,19 +5,24 @@ import java.time.LocalDate;
 public class Produto {
 //nome de atributo sempre começa com minusculo;
 //Segunda palavra inicia com Maiuscula;
-    private long codigoBarras;
-    private String descricao;
-    private double preco;
-    private LocalDate validade;
-    private boolean ehPerecivel;
+    private static int quantidade;
+    //Por ser final (constante), inicializar em todos os construtores
+    private final long codigoBarras;
+    public String descricao;
+    public double preco;
+    public LocalDate validade;
+    public boolean ehPerecivel;
 
 
-    //Sobrecarga do operador
+    //Sobrecarga do métod4
     public Produto() {
+        codigoBarras = 0;
+        quantidade++;
     }
 
     public Produto(long codigoBarras) {
         this.codigoBarras = codigoBarras;
+        quantidade++;
     }
 
     //construtor
@@ -36,8 +41,50 @@ public class Produto {
 
     //SET - permite modificação
     public void setCodigoBarras(long codigoBarras) {
-        this.codigoBarras = codigoBarras;
+    //    this.codigoBarras = codigoBarras;
     }
 
+    public boolean ehVencido() {
+        return validade.isBefore(LocalDate.now());
+    }
+
+public String getDescricao(){
+    return descricao;
 }
+
+public void setDescricao(String descricao){
+    this.descricao = descricao;
+}
+
+public LocalDate getValidade() {
+    return validade;
+}
+
+public void setValidade(LocalDate validade) {
+    this.validade = validade;
+}
+
+public boolean getEhPerecivel() {
+    return ehPerecivel;
+}
+
+public void setEhPerecivel(boolean ehPerecivel) {
+    this.ehPerecivel = ehPerecivel;
+}
+
+public double getPreco() {
+    return preco;
+}
+
+public void setPreco(double preco) {
+    this.preco = preco;
+}
+
+    public static int getQuantidade(){
+        return quantidade;
+    }
+
+//fechamento da classe
+}
+
 
