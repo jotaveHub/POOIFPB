@@ -1,4 +1,20 @@
 package modelo;
 
-public class Tecnico {
+import java.time.LocalDate;
+
+public class Tecnico extends Funcionario {
+    private String setor;
+
+    public Tecnico(String nome, String cpf, LocalDate nascimento, String endereco, int matricula, float salario, String setor) {
+        super(nome, cpf, nascimento, endereco, matricula, salario);
+        this.setor = setor;
+    }
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
 }
