@@ -6,11 +6,11 @@ public class Aluno {
     private String nome;
     private String cpf;
     private LocalDate nascimento;
-    private String matricula;
+    private int matricula;
     private String endereço;
     private String curso;
 
-    public Aluno(String nome, String cpf, LocalDate nascimento, String matricula, String endereço, String curso) {
+    public Aluno(String nome, String cpf, LocalDate nascimento, int matricula, String endereço, String curso) {
         this.nome = nome;
         this.cpf = cpf;
         this.nascimento = nascimento;
@@ -43,11 +43,11 @@ public class Aluno {
         this.nascimento = nascimento;
     }
 
-    public String getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
 
