@@ -16,5 +16,16 @@ public class Professor extends Funcionario {
     public void setTitulacao(String titulacao) {
         this.titulacao = titulacao;
     }
+
+    @Override
+    public float calcularPagamento() {
+        float salario = getSalario();
+        switch (titulacao) {
+            case "Especialização" -> salario+= 500;
+            case "Mestrado" -> salario+= 1000;
+            case "Doutorado" -> salario+= 2000;
+        }
+        return salario;
+    }
 }
 
