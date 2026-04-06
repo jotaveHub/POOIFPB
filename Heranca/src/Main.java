@@ -25,4 +25,6 @@ void main() {
             "Rua X, 123, Sousa-PB", 76544,5000f,"Laboratório de Redes");
 
 
+    System.out.println(funcionario.calcularPagamento());
+    System.out.println(funcionario1.calcularPagamento());
 }
