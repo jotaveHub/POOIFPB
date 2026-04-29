@@ -1,4 +1,4 @@
-import model.Aluno;
+/*import model.Aluno;
 import model.Professor;
 import model.Turma;
 
@@ -15,4 +15,12 @@ void main() {
     turma.remover(new Aluno("123", "Pedro"));
 
 
+}*/
+
+import model.Controlador;
+import model.Controlador;
+
+void main() {
+
 }
+
