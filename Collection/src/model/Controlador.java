@@ -3,27 +3,17 @@ package model;
 import java.util.Stack;
 
 public class Controlador {
-    private Stack adicionar;
-    private Stack desfazer;
+    private Stack<Comando> comandos;
 
-    public Controlador(Stack adicionar, Stack desfazer) {
-        this.adicionar = adicionar;
-        this.desfazer = desfazer;
+    public Controlador() {
+        comandos = new Stack<>();
     }
 
-    public Stack getAdicionar() {
-        return adicionar;
+    public Comando adicionar(Comando comando) {
+        return comandos.push(comando);
     }
 
-    public void setAdicionar(Stack adicionar) {
-        this.adicionar = adicionar;
-    }
-
-    public Stack getDesfazer() {
-        return desfazer;
-    }
-
-    public void setDesfazer(Stack desfazer) {
-        this.desfazer = desfazer;
+    public Comando desfazer() {
+        return comandos.pop();
     }
 }
