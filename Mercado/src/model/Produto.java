@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Produto {
+public class Produto implements Comparable<Produto> {
     private int codigo;
     private String descricao;
     private float preco;
@@ -55,5 +55,11 @@ public class Produto {
     @Override
     public int hashCode() {
         return Objects.hashCode(codigo);
+    }
+
+    // mét4do para comparar usando treeset
+    @Override
+    public int compareTo(Produto outro) {
+        return codigo-outro.codigo;
     }
 }
