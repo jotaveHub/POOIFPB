@@ -17,6 +17,13 @@ void main() {
             return o1.getNome().compareTo(o2.getNome());
         }
     });
+
+    //com lambda
+    Collections.sort(pessoas, (o1, o2) -> o1.getNome().compareTo(o2.getNome()));
+    System.out.println(pessoas);
+    //com method reference
+    Collections.sort(pessoas, Comparator.comparing(Pessoa::getNascimento));
+    System.out.println(pessoas);
 }
 
 
