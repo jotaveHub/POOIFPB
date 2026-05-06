@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Pessoa {
     private String nome;
@@ -33,5 +34,16 @@ public class Pessoa {
                 "nome='" + nome + '\'' +
                 ", nascimento=" + nascimento +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Pessoa pessoa)) return false;
+        return Objects.equals(nome, pessoa.nome) && Objects.equals(nascimento, pessoa.nascimento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, nascimento);
     }
 }

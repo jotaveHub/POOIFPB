@@ -24,6 +24,21 @@ void main() {
     //com method reference
     Collections.sort(pessoas, Comparator.comparing(Pessoa::getNascimento));
     System.out.println(pessoas);
+
+    Set<Pessoa> conjunto = new HashSet<>();
+    for(Pessoa pessoa: pessoas) {
+        conjunto.add(pessoa);
+    }
+    System.out.println(conjunto.size());
+    System.out.println(pessoas.stream().distinct().count());
+
+    pessoas.stream().forEach(o-> System.out.println(o));
+
+    pessoas.stream()
+            .distinct()
+            .filter(o->Period.between(o.getNascimento(),LocalDate.now())
+                    .getYears()>=18)
+            .forEach(o-> System.out.println(o));
 }
 
 
