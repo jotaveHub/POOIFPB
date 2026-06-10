@@ -11,7 +11,7 @@ import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
-
+/*
 //Conexão do banco de dados
         try {
             Connection connection = new ConnectionFactory().getConnection();
@@ -22,15 +22,18 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
-}
+}*/
 
-        /*
         UsuarioDaoJdbc dao = new UsuarioDaoJdbc();
 
         try {
-            System.out.println(dao.getUsuariobyEmail("joao@gmail.com"));
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Falha na conexão com o banco");
+            if (dao.deletar(new Usuario("joaovictor@gmail.com", "123456"))) {
+                JOptionPane.showMessageDialog(null, "Usuario deletado com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Falha ao salvar usuario");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
         }
     }
-}*/
+}

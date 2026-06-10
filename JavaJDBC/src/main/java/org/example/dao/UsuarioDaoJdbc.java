@@ -14,22 +14,40 @@ public class UsuarioDaoJdbc {
         Usuario usuario = null;
         try (Connection con = new ConnectionFactory().getConnection()) {
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM usuario WHERE email=?");
-            stmt.setString(1,email);
+            stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 String email1 = rs.getString("email");
                 String password = rs.getString("senha");
-                usuario = new Usuario(email,password);
+                usuario = new Usuario(email, password);
             }
         }
         return usuario;
     }
+
     public boolean salvar(Usuario usuario) throws SQLException, IOException, ClassNotFoundException {
-        try(Connection con = new ConnectionFactory().getConnection()) {
+        try (Connection con = new ConnectionFactory().getConnection()) {
             PreparedStatement stmt = con.prepareStatement("INSERT INTO usuario (email,senha) VALUES (?,?)");
             stmt.setString(1, usuario.getEmail());
             stmt.setString(2, usuario.getSenha());
-            return stmt.executeUpdate()>0;
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean deletar(Usuario usuario) throws SQLException, IOException, ClassNotFoundException {
+        try (Connection con = new ConnectionFactory().getConnection()) {
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM usuario WHERE email = ?");
+            stmt.setString(1, usuario.getEmail());
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean atualizar(Usuario usuario) throws SQLException, IOException, ClassNotFoundException {
+        try (Connection con = new ConnectionFactory().getConnection()) {
+            PreparedStatement stmt = con.prepareStatement("UPDATE usuario SET senha = ? WHERE email = ?");
+            stmt.setString(1, usuario.getEmail());
+            stmt.setString(2, usuario.getSenha());
+            return stmt.executeUpdate() > 0;
         }
     }
 }
