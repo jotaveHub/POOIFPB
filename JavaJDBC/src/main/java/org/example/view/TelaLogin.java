@@ -23,8 +23,8 @@ public class TelaLogin extends JFrame {
         TelaLogin dialog = new TelaLogin();
         dialog.pack();
         dialog.setVisible(true);
-
     }
+
 
 
     private void createUIComponents() {
